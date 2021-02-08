@@ -82,16 +82,6 @@ model_op_noint_age <- lmer(percentphee ~ treatment + opdaybin_r + pnd + (1|id),
 summary(model_op_noint_age) 
 nobs(model_op_noint_age)
 
-# add animal's age to the data
-# fits better than previous model
-model_op_noint_age <- lmer(percentphee ~ treatment + opdaybin_r + pnd + (1|id), 
-                           data = df_filt_m,
-                           REML = FALSE, 
-                           control=lmerControl(optimizer="bobyqa")) 
-
-summary(model_op_noint_age) 
-nobs(model_op_noint_age)
-
 # add animal's `opcondition` to the data
 # fits better than previous model
 model_age_opcond <- lmer(percentphee ~ treatment*opcondition +
